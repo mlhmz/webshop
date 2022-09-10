@@ -1,6 +1,6 @@
-package de.szut.webshop.contact;
+package de.szut.webshop.contact.entity;
 
-import de.szut.webshop.supplier.Supplier;
+import de.szut.webshop.supplier.entity.Supplier;
 import lombok.*;
 
 import javax.persistence.*;

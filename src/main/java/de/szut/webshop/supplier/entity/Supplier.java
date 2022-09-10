@@ -1,8 +1,7 @@
-package de.szut.webshop.supplier;
+package de.szut.webshop.supplier.entity;
 
-import de.szut.webshop.article.Article;
-import de.szut.webshop.contact.Contact;
-import lombok.Data;
+import de.szut.webshop.article.entity.Article;
+import de.szut.webshop.contact.entity.Contact;
 import lombok.Getter;
 import lombok.Setter;
 
