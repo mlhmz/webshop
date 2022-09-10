@@ -1,14 +1,17 @@
 package de.szut.webshop.article;
 
 import de.szut.webshop.supplier.Supplier;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
+@Table(name = "article")
 @Entity
 public class Article {
     @Id
@@ -32,4 +35,9 @@ public class Article {
             cascade = CascadeType.ALL
     )
     private Supplier supplier;
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

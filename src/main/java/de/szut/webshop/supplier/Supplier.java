@@ -3,11 +3,15 @@ package de.szut.webshop.supplier;
 import de.szut.webshop.article.Article;
 import de.szut.webshop.contact.Contact;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@Table(name = "supplier")
 @Entity
 public class Supplier {
     @Id
@@ -18,7 +22,7 @@ public class Supplier {
 
     @OneToMany(
             mappedBy = "supplier",
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )
     private Set<Article> articles;
@@ -28,4 +32,9 @@ public class Supplier {
             cascade = CascadeType.ALL
     )
     private Contact contact;
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

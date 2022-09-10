@@ -1,13 +1,15 @@
 package de.szut.webshop.contact;
 
 import de.szut.webshop.supplier.Supplier;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Data
+@Getter
+@Setter
+@Table(name = "contact")
 @Entity
 public class Contact {
     @Id
@@ -34,4 +36,9 @@ public class Contact {
             cascade = CascadeType.ALL
     )
     private Supplier supplier;
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }
