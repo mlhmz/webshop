@@ -27,7 +27,7 @@ public class Supplier {
     private Set<Article> articles;
 
     @OneToOne(
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )
     private Contact contact;

@@ -17,4 +17,11 @@ public class ExceptionHandler {
     public String handleResourceNotFoundException(ResourceNotFoundException ex) {
         return ex.getMessage();
     }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public String handleAnyException(Exception ex) {
+        return ex.getMessage();
+    }
 }
