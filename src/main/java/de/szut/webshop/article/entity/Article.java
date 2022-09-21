@@ -1,8 +1,7 @@
 package de.szut.webshop.article.entity;
 
 import de.szut.webshop.supplier.entity.Supplier;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +11,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "article")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Article {
     @Id

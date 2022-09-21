@@ -38,14 +38,9 @@ public class SupplierController {
 
     @GetMapping
     public ResponseEntity<List<GetSupplierDto>> findAllSuppliers() {
-        List<Supplier> suppliers = service.readAll();
-
-        // in order to keep the index information a LinkedList is used here
-        LinkedList<GetSupplierDto> dtoList = suppliers.stream()
+        return new ResponseEntity<>(service.readAll().stream()
                 .map(mapper::mapSupplierToGetSupplierDto)
-                .collect(Collectors.toCollection(LinkedList::new));
-
-        return new ResponseEntity<>(dtoList, HttpStatus.OK);
+                .collect(Collectors.toList()), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

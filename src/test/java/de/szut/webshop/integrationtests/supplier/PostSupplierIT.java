@@ -57,7 +57,7 @@ public class PostSupplierIT extends AbstractIntegrationTest {
     }
 
     private String fillJSONContent() {
-        String content = String.format("""
+        return String.format("""
                 {
                     "%s": "%s",
                     "%s": "%s",
@@ -72,7 +72,6 @@ public class PostSupplierIT extends AbstractIntegrationTest {
                 JSON_CITY_PATH, city,
                 JSON_PHONE_PATH, phone
         );
-        return content;
     }
 
     private void testSupplier(String contentAsString) throws JSONException {

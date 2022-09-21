@@ -1,5 +1,6 @@
 package de.szut.webshop.service;
 
+import de.szut.webshop.article.dto.AddArticleDto;
 import de.szut.webshop.article.dto.GetAllArticlesBySupplierDto;
 import de.szut.webshop.article.dto.GetArticleDto;
 import de.szut.webshop.article.entity.Article;
@@ -55,6 +56,13 @@ public class MappingService {
         dto.setPhone(contact.getPhone());
 
         return dto;
+    }
+
+    public Article mapAddArticleDtoToArticle(AddArticleDto dto) {
+        return Article.builder()
+                .designation(dto.getDesignation())
+                .price(dto.getPrice())
+                .build();
     }
 
     /**
