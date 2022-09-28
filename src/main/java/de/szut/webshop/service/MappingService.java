@@ -67,15 +67,18 @@ public class MappingService {
 
     /**
      * Maps {@link Article} into viewable DTO
-     * @param article the article to map
+     *
+     * @param article  the article to map
+     * @param currency
      * @return the viewable dto for a get request
      */
-    public GetArticleDto mapArticleToGetArticleDto(Article article) {
+    public GetArticleDto mapArticleToGetArticleDto(Article article, String currency) {
         GetArticleDto dto = new GetArticleDto();
 
         dto.setId(article.getId());
         dto.setDesignation(article.getDesignation());
         dto.setPrice(article.getPrice());
+        dto.setCurrency(currency);
 
         return dto;
     }
@@ -93,8 +96,9 @@ public class MappingService {
         dto.setId(supplier.getId());
 
         // Maps all Articles to GetArticleDto
+        // TODO: Ergänzen
         Set<GetArticleDto> articleDtoSet = supplier.getArticles().stream()
-                .map(this::mapArticleToGetArticleDto)
+                .map(article -> mapArticleToGetArticleDto(article, null))
                 .collect(Collectors.toSet());
 
         dto.setArticles(articleDtoSet);

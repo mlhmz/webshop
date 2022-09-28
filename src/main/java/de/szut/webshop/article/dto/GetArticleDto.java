@@ -9,4 +9,6 @@ public class GetArticleDto {
     private String designation;
 
     private double price;
+
+    private String currency;
 }
